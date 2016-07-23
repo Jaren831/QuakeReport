@@ -40,7 +40,8 @@ public class Quake {
             mCoords = splitLocation[0];
             mCountry = splitLocation[1];
         } else {
-            mCoords = splitLocation[0];
+            mCountry = splitLocation[0];
+            mCoords = "Unknown position in";
         }
         mMagnitude = magnitude;
 
@@ -48,6 +49,7 @@ public class Quake {
         Date dateObject = new Date(date);
         SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
         mDate = dateFormatter.format(dateObject);
+
 
         //Sets Long of parse time data to desired time format.
         Date timeObject = new Date(date);
