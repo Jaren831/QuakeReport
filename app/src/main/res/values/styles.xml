@@ -21,15 +21,43 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
 
-    <!-- Style for a category of vocabulary words -->
-    <style name="CategoryStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/list_item_height</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:textColor">@android:color/white</item>
+    <!--Magnitude view theme. -->
+    <style name="Magnitude">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textAppearance">?android:textAppearanceMedium</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <!--Coordinates view theme. -->
+    <style name="Coordinates">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:textSize">12sp</item>
+
+
+    </style>
+
+    <!--Country view theme. -->
+    <style name="Country">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <!--Date and time views theme. -->
+    <style name="DateAndTime">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
 </resources>

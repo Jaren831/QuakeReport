@@ -25,14 +25,30 @@ public class QuakeAdapter extends ArrayAdapter<Quake>{
         }
         Quake currentQuake = getItem(position);
 
-        TextView locationTextView = (TextView) listItemView.findViewById(R.id.quake_location);
-        locationTextView.setText(currentQuake.getLocation());
-
+        //Find the TextView with id magnitude
         TextView magnitudeTextView = (TextView) listItemView.findViewById(R.id.magnitude);
+        //Display the magnitude of the current quake
         magnitudeTextView.setText(currentQuake.getMagnitude());
 
-        TextView dateTextView = (TextView) listItemView.findViewById(R.id.quake_date);
+        //Find the textView with id coords
+        TextView coordsTextView = (TextView) listItemView.findViewById(R.id.coordinates);
+        //Display the location of the current quake
+        coordsTextView.setText(currentQuake.getCoords());
+
+        //Find the textView with id country
+        TextView countryTextView = (TextView) listItemView.findViewById(R.id.country);
+        //Display the location of the current quake
+        countryTextView.setText(currentQuake.getCountry());
+
+        //Find the textView with id date
+        TextView dateTextView = (TextView) listItemView.findViewById(R.id.date);
+        //Display the date of the current quake
         dateTextView.setText(currentQuake.getDate());
+
+        //Find the textView with id time
+        TextView timeTextView = (TextView) listItemView.findViewById(R.id.time);
+        //Display the date of the current quake
+        timeTextView.setText(currentQuake.getTime());
 
         return listItemView;
     }

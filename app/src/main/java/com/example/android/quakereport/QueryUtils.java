@@ -58,9 +58,10 @@ public final class QueryUtils {
 
                 String location = properties.optString("place");
                 String magnitude = properties.optString("mag");
-                String date = properties.optString("time");
+                Long timeInMilliseconds = properties.getLong("time");
 
-                earthquakes.add(new Quake(location, magnitude, date));
+
+                earthquakes.add(new Quake(location, magnitude, timeInMilliseconds));
             }
 
 
