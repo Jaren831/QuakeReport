@@ -19,6 +19,7 @@
 
     <!-- Primary dark color of the app (shown in the status bar) -->
     <color name="colorPrimaryDark">#23303D</color>
+    <color name="category_family">#379237</color>
 
     <!-- Accent color of the app -->
     <color name="colorAccent">#10CAC9</color>
