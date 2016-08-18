@@ -14,9 +14,9 @@ import java.util.ArrayList;
 /**
  * Created by Jaren Lynch on 7/21/2016.
  */
-public class QuakeAdapter extends ArrayAdapter<Quake>{
-    public QuakeAdapter(Context context, ArrayList<Quake> quakes) {
-        super(context, 0, quakes);
+public class QuakeAdapter extends ArrayAdapter<Earthquake>{
+    public QuakeAdapter(Context context, ArrayList<Earthquake> earthquakes) {
+        super(context, 0, earthquakes);
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -25,19 +25,19 @@ public class QuakeAdapter extends ArrayAdapter<Quake>{
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
         }
-        Quake currentQuake = getItem(position);
+        Earthquake currentEarthquake = getItem(position);
 
 
         //Find the TextView with id magnitude
         TextView magnitudeTextView = (TextView) listItemView.findViewById(R.id.magnitude);
         //Display the magnitude of the current quake
-        magnitudeTextView.setText(currentQuake.getMagnitude());
+        magnitudeTextView.setText(currentEarthquake.getMagnitude());
 
         // Set the proper background color on the magnitude circle.
         // Fetch the background from the TextView, which is a GradientDrawable.
         GradientDrawable magnitudeCircle = (GradientDrawable) magnitudeTextView.getBackground();
         // Get the appropriate background color based on the current earthquake magnitude
-        int magnitudeColor = getMagnitudeColor(currentQuake.getMagnitude());
+        int magnitudeColor = getMagnitudeColor(currentEarthquake.getMagnitude());
 
         // Set the color on the magnitude circle
         magnitudeCircle.setColor(magnitudeColor);
@@ -45,22 +45,22 @@ public class QuakeAdapter extends ArrayAdapter<Quake>{
         //Find the textView with id coords
         TextView coordsTextView = (TextView) listItemView.findViewById(R.id.coordinates);
         //Display the location of the current quake
-        coordsTextView.setText(currentQuake.getCoords());
+        coordsTextView.setText(currentEarthquake.getCoords());
 
         //Find the textView with id country
         TextView countryTextView = (TextView) listItemView.findViewById(R.id.country);
         //Display the location of the current quake
-        countryTextView.setText(currentQuake.getCountry());
+        countryTextView.setText(currentEarthquake.getCountry());
 
         //Find the textView with id date
         TextView dateTextView = (TextView) listItemView.findViewById(R.id.date);
         //Display the date of the current quake
-        dateTextView.setText(currentQuake.getDate());
+        dateTextView.setText(currentEarthquake.getDate());
 
         //Find the textView with id time
         TextView timeTextView = (TextView) listItemView.findViewById(R.id.time);
         //Display the date of the current quake
-        timeTextView.setText(currentQuake.getTime());
+        timeTextView.setText(currentEarthquake.getTime());
         System.out.print(magnitudeColor);
         return listItemView;
     }

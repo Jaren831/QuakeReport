@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * Created by Jaren Lynch on 7/21/2016.
  */
-public class Quake {
+public class Earthquake {
 
     //Coordinates of quake
     private String mCoords;
@@ -23,6 +23,9 @@ public class Quake {
     //Time of quake
     private String mTime;
 
+    //url for quake
+    private String mURL;
+
 
     /**
      *
@@ -31,7 +34,7 @@ public class Quake {
      * @param date is the date of the quake
      */
 
-    public Quake(String location, String magnitude, Long date) {
+    public Earthquake(String location, String magnitude, Long date, String url) {
         String[] splitLocation = location.split("(?<= of )");
 
         //Check to see if coordinates and country are present in location. If not, will  only
@@ -47,7 +50,7 @@ public class Quake {
 
         //Sets Long of parse time data to desired date format.
         Date dateObject = new Date(date);
-        SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE, MMM d, yyyy");
         mDate = dateFormatter.format(dateObject);
 
 
@@ -55,6 +58,8 @@ public class Quake {
         Date timeObject = new Date(date);
         SimpleDateFormat timeFormatter = new SimpleDateFormat("h:mm a");
         mTime = timeFormatter.format(timeObject);
+
+        mURL = url;
     }
 
     /**
@@ -94,5 +99,12 @@ public class Quake {
      */
     public String getTime() {
         return mTime;
+    }
+
+    /**
+     * @return url for quake
+     */
+    public String getURL() {
+        return mURL;
     }
 }
