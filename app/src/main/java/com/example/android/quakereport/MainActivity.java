@@ -7,9 +7,11 @@ import android.content.Loader;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,10 @@ public class MainActivity extends AppCompatActivity
 
     ListView earthquakeListView;
 
+    TextView emptyView;
+
+    /** TextView that is displayed when the list is empty */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,13 +54,16 @@ public class MainActivity extends AppCompatActivity
 
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
-        assert earthquakeListView != null;
         earthquakeListView.setAdapter(mAdapter);
+        emptyView = (TextView) findViewById(R.id.empty);
+        earthquakeListView.setEmptyView(emptyView);
 
         // Get a reference to the LoaderManager, in order to interact with loaders.
         LoaderManager loaderManager = getLoaderManager();
 
         loaderManager.initLoader(EARTHQUAKE_LOADER_ID, null, this);
+        Log.i(LOG_TAG, "TEST: Main Activity initLoader() called");
+
 
         earthquakeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -75,13 +84,17 @@ public class MainActivity extends AppCompatActivity
     }
     @Override
     public Loader<List<Earthquake>> onCreateLoader(int i, Bundle bundle) {
+        Log.i(LOG_TAG, "TEST: Main Activity onCreateLoader() called");
+
         return new EarthquakeLoader(this, USGS_URL);
     }
 
     @Override
     public void  onLoadFinished(Loader<List<Earthquake>> loader, List<Earthquake> earthquakes) {
+        emptyView.setText(R.string.empty);
         // Clear the adapter of previous earthquake data
         mAdapter.clear();
+        Log.i(LOG_TAG, "TEST: Main Activity onLoadFinished() called");
 
         // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.
@@ -93,6 +106,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onLoaderReset(Loader<List<Earthquake>> loader) {
+        Log.i(LOG_TAG, "TEST: Main Activity onLoaderReset() called");
+
         mAdapter.clear();
     }
 }
